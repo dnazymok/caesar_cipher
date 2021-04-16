@@ -1,3 +1,18 @@
+def main():
+    print("Выберите вариант: шифрование - encrypt, дешифрование - decrypt:")
+    user_select = input().strip()
+    if user_select == "encrypt":
+        user_encrypt_text = input("Введите текст для шифрования:")
+        user_encrypt_key = int(input("Введите ключ/сдвиг шифрования:"))
+        print(encrypt(user_encrypt_text, user_encrypt_key))
+    elif user_select == "decrypt":
+        user_decrypt_text = input("Введите текст для дешифрования:")
+        user_decrypt_key = int(input("Введите ключ/сдвиг дешифрования:"))
+        print(decrypt(user_decrypt_text, user_decrypt_key))
+    else:
+        print("Неверно выбран режим")
+
+
 def encrypt(text, key):
     symbols = '1234567890 .,?"!\'-'
     language = check_language(text)
@@ -71,4 +86,6 @@ def check_language(string):
     else:
         return 'english'
 
-print(encrypt("abcd", 2))
+
+if __name__ == "__main__":
+    main()
